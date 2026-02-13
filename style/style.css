@@ -1,146 +1,140 @@
-/* RESET */
-*,
-*::before,
-*::after {
+* {
   box-sizing: border-box;
 }
 
-html, body {
-  margin: 0;
-  padding: 0;
-}
-
-/* BASE */
 body {
+  margin: 0;
   font-family: "Work Sans", sans-serif;
-  min-height: 100vh;
-  background: linear-gradient(135deg, #ff758c, #ff7eb3);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #fff;
+  background: linear-gradient(135deg, #ff6a88, #ff99ac, #ffc3a0);
+  background-size: 400% 400%;
+  animation: gradientMove 12s ease infinite;
   overflow: hidden;
+  color: #fff;
 }
 
-/* CONTAINER */
+@keyframes gradientMove {
+  0% { background-position: 0% 50% }
+  50% { background-position: 100% 50% }
+  100% { background-position: 0% 50% }
+}
+
 .container {
+  height: 100vh;
   width: 100%;
-  max-width: 900px;
-  min-height: 100vh;
-  padding: 40px 20px;
+  max-width: 1000px;
+  margin: 0 auto;
   text-align: center;
+  visibility: hidden;
   position: relative;
 }
 
-/* SCREENS */
+/* IMPORTANT — GSAP relies on this */
 .container > div {
-  position: relative;
-  margin-top: 15vh;
-  animation: fadeUp 0.8s ease both;
+  position: absolute;
+  width: 100%;
 }
 
-@keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(40px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
+/* text styles */
 
-/* TITLES */
 .one {
   font-size: clamp(2.5rem, 5vw, 4rem);
   font-weight: 700;
+  margin-top: 20vh;
 }
 
 .two {
-  margin-top: 10px;
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   opacity: 0.9;
 }
 
 .three {
-  font-size: clamp(1.8rem, 4vw, 3rem);
-  font-weight: 600;
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin-top: 25vh;
 }
 
-/* GLASS CARD */
+/* glass card */
+
 .four .text-box {
-  margin: 0 auto;
-  margin-top: 30px;
-  max-width: 520px;
-  padding: 25px 30px;
-  background: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(12px);
+  width: 600px;
+  margin: 30vh auto 0;
+  padding: 30px;
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(14px);
   border-radius: 24px;
   border: 1px solid rgba(255,255,255,0.25);
-  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+  box-shadow: 0 25px 60px rgba(0,0,0,0.25);
 }
 
-.text-box p {
-  margin: 0;
-  font-size: 1.1rem;
-  line-height: 1.6;
-}
-
-/* BUTTON */
-.fake-btn,
-button {
-  display: inline-block;
-  margin-top: 25px;
-  padding: 12px 28px;
-  border-radius: 30px;
-  border: none;
+.fake-btn {
+  position: absolute;
+  right: 20px;
+  bottom: 15px;
   background: #fff;
   color: #ff4d6d;
+  padding: 10px 16px;
+  border-radius: 30px;
   font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
+  transition: 0.3s;
 }
 
-.fake-btn:hover,
-button:hover {
+.fake-btn:hover {
   transform: translateY(-3px);
-  box-shadow: 0 12px 25px rgba(0,0,0,0.25);
 }
 
-/* BIG IDEA TEXT */
+/* ideas */
+
 .idea-5 {
-  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-size: clamp(3rem, 6vw, 5rem);
   font-weight: 800;
-  margin-top: 40px;
+  text-shadow: 0 0 25px rgba(255,255,255,0.5);
 }
 
-/* IMAGE SECTION */
-.six img {
-  max-width: 300px;
-  border-radius: 20px;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+/* photo */
+
+.girl-dp {
+  width: 220px;
+  border-radius: 30px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.3);
 }
 
-/* FINAL MESSAGE */
+/* final wish */
+
 .wish-hbd {
-  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-size: clamp(2.8rem, 5vw, 3.8rem);
   font-weight: 700;
-  margin-top: 30px;
+  letter-spacing: 3px;
+  text-shadow: 0 0 20px rgba(255,255,255,0.7),
+               0 0 40px rgba(255,105,180,0.6);
 }
 
 .wish h5 {
-  font-size: 1.2rem;
-  font-weight: 400;
-  opacity: 0.85;
+  font-size: 1.3rem;
+  opacity: 0.9;
 }
 
-/* MOBILE */
-@media (max-width: 500px) {
-  .container {
-    padding: 30px 15px;
-  }
+/* balloons */
 
-  .four .text-box {
-    padding: 20px;
-  }
+.baloons img {
+  position: absolute;
+  width: 60px;
+  opacity: 0.9;
+}
+
+/* circles animation */
+
+.eight svg {
+  position: absolute;
+  width: 40px;
+  fill: rgba(255,255,255,0.4);
+  visibility: hidden;
+}
+
+/* final block */
+
+.nine {
+  margin-top: 35vh;
+}
+
+.last-smile {
+  font-size: 3rem;
 }
