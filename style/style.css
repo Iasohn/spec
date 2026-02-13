@@ -34,6 +34,33 @@ body {
   100% { background-position: 0% 50%; }
 }
 
+/* Typing Animation */
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes blink-caret {
+  from, to {
+    border-right-color: rgba(255, 255, 255, 0.8);
+  }
+  50% {
+    border-right-color: transparent;
+  }
+}
+
+.typing-text {
+  overflow: hidden;
+  border-right: 3px solid rgba(255, 255, 255, 0.8);
+  white-space: nowrap;
+  animation: typing 2.5s steps(40, end), blink-caret 0.75s step-end infinite;
+  display: inline-block;
+}
+
 .container {
   height: 100vh;
   width: 100%;
@@ -140,6 +167,48 @@ body {
 
 .hbd-chatbox {
   margin-bottom: 20px;
+  animation: fadeInType 0.5s ease-out forwards;
+  opacity: 0;
+}
+
+@keyframes fadeInType {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Typing effect для символов */
+.hbd-chatbox span {
+  animation: charTyping 0.1s ease-out forwards;
+  opacity: 0;
+}
+
+.hbd-chatbox span:nth-child(1) { animation-delay: 0s; }
+.hbd-chatbox span:nth-child(2) { animation-delay: 0.08s; }
+.hbd-chatbox span:nth-child(3) { animation-delay: 0.16s; }
+.hbd-chatbox span:nth-child(4) { animation-delay: 0.24s; }
+.hbd-chatbox span:nth-child(5) { animation-delay: 0.32s; }
+.hbd-chatbox span:nth-child(6) { animation-delay: 0.40s; }
+.hbd-chatbox span:nth-child(7) { animation-delay: 0.48s; }
+.hbd-chatbox span:nth-child(8) { animation-delay: 0.56s; }
+.hbd-chatbox span:nth-child(9) { animation-delay: 0.64s; }
+.hbd-chatbox span:nth-child(10) { animation-delay: 0.72s; }
+.hbd-chatbox span:nth-child(n+11) { animation-delay: 0.8s; }
+
+@keyframes charTyping {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 .fake-btn {
@@ -178,6 +247,19 @@ body {
   max-width: 800px;
   margin-left: auto;
   margin-right: auto;
+  animation: textAppear 0.8s ease-out forwards;
+  opacity: 0;
+}
+
+@keyframes textAppear {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 0.95;
+    transform: translateY(0);
+  }
 }
 
 .idea-3 strong {
@@ -249,6 +331,31 @@ body {
   -webkit-text-fill-color: transparent;
   background-clip: text;
   animation: shimmer 3s ease-in-out infinite;
+}
+
+/* Styling для каждой буквы в wish-hbd */
+.wish-hbd span {
+  animation: letterFloat 0.6s ease-out forwards;
+  opacity: 0;
+  display: inline-block;
+}
+
+.wish-hbd span:nth-child(1) { animation-delay: 0s; }
+.wish-hbd span:nth-child(2) { animation-delay: 0.07s; }
+.wish-hbd span:nth-child(3) { animation-delay: 0.14s; }
+.wish-hbd span:nth-child(4) { animation-delay: 0.21s; }
+.wish-hbd span:nth-child(5) { animation-delay: 0.28s; }
+.wish-hbd span:nth-child(n+6) { animation-delay: 0.35s; }
+
+@keyframes letterFloat {
+  from {
+    opacity: 0;
+    transform: translateY(30px) rotateX(90deg);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) rotateX(0deg);
+  }
 }
 
 @keyframes shimmer {
@@ -349,6 +456,23 @@ body {
   padding: 0 20px;
   box-sizing: border-box;
   max-width: 700px;
+  animation: fadeInScale 0.7s ease-out forwards;
+  opacity: 0;
+}
+
+.nine p:nth-child(1) { animation-delay: 0.2s; }
+.nine p:nth-child(2) { animation-delay: 0.4s; }
+.nine p:nth-child(3) { animation-delay: 0.6s; }
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.9) translateY(15px);
+  }
+  to {
+    opacity: 0.95;
+    transform: scale(1) translateY(0);
+  }
 }
 
 #replay {
